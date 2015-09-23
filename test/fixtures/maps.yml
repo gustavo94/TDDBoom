@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  board: MyText
+  solution: MyString
+  optimizations: MyString
+  level: 1
+
+two:
+  name: MyString
+  board: MyText
+  solution: MyString
+  optimizations: MyString
+  level: 1

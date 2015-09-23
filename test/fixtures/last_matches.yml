@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  winner: MyString
+  winner_resources: 1
+  winner_problem_solved: 1
+  winner_optimizations_archieved: 1
+  avg_resources: 9.99
+  avg_problem_solved: 9.99
+  avg_optimizations_archieved: 9.99
+
+two:
+  winner: MyString
+  winner_resources: 1
+  winner_problem_solved: 1
+  winner_optimizations_archieved: 1
+  avg_resources: 9.99
+  avg_problem_solved: 9.99
+  avg_optimizations_archieved: 9.99
