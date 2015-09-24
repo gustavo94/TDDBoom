@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get "/", to: "application#index", as: :home
+  get "/settings", to: "application#settings", as: :settings
   resources :teams
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

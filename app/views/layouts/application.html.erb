@@ -2,13 +2,26 @@
 <html>
 <head>
   <title>TDDBoom</title>
+  <%= stylesheet_link_tag	'https://fonts.googleapis.com/icon?family=Material+Icons' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">TDD Boom <i class="large material-icons">new_releases</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li id="resources-value"> </li>
+        <li id="time-value"> </li>
+        <li class="right"><a href="<%=settings_path %>"><i class="large material-icons">settings</i></a></li>
+      </ul>
+      <div id="team-label" class="center"> </div> 
+    </div>
+  </nav>
+  <div class="panel container center">
+      <%= yield %>    
+  </div>
 
 </body>
 </html>
