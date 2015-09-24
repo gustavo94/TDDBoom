@@ -1,1 +1,45 @@
-Aqui se va a configurar el juego 
+%div{id:'parent-settings'}
+  %div{id:'accordion-settings'}
+    %ul{class:'collapsible', data:{collapsible:'accordion'}}
+      %li
+        %div{class:"collapsible-header"}
+          %i{class:"medium material-icons"}perm_identity
+          Team
+        %div{class:'collapsible-body'}
+          %label Name of new Team
+          %div{class:'col s12'}
+            %input{id:'team-name', value:'test1'}
+          %div{class:'col s12'}
+            %a{class:'waves-effect waves-light btn'}
+              %i{class:'large material-icons left'}input
+              Add Team
+      %li
+        %div{class:"collapsible-header"}
+          %i{class:"medium material-icons"}grade
+          Rules
+        %div{class:'collapsible-body'}
+          %label Resources
+          %div{id:'resources-div'}
+            %input{id:'resources', default:1000, value:1000}
+            %a{class:'waves-efect waves-light btn'}
+              %i{class:'medium material-icons'}toll
+              Set Resources
+          %label Time per Team
+          %div{id:'time-div'}
+            %input{id:'time', value:1000, default:1000}
+            %a{class:'waves-efect waves-light btn'}
+              %i{class:'medium material-icons'}schedule
+              Set Time
+  %div{class:'col s12'}
+    %a{class:'waves-efect waves-light btn'}
+      %i{class:'medium material-icons'}settings_power
+      END
+    %a{class:'waves-efect waves-light btn'}
+      %i{class:'medium material-icons'} fast_forward
+      PLAY
+    %a{class:'waves-efect waves-light btn'}
+      %i{class:'medium material-icons'}loop
+      RESTART
+    %a{class:'waves-efect waves-light btn'}
+      %i{class:'medium material-icons'}fast_rewind
+      HOME
