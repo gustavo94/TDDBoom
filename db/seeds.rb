@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Map.destroy_all
 mapa_easy_1 = Map.new
 mapa_easy_1.name = "Easy 1"
 mapa_easy_1.level = Map::LEVEL[:easy]

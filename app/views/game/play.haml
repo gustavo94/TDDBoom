@@ -1,0 +1,12 @@
+%table.board
+	-(0...@map.level).each do |row|
+		%tr
+			-(0...@map.level).each do |column|
+				%td
+					-cell = column +(6*row)
+					-if @map.board[cell][:value].class != String
+						= @map.board[cell][:value] 
+:javascript
+	$(document).ready(function(){
+	    $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
+	  });
