@@ -11,11 +11,11 @@
 				%i.material-icons
 					delete
 	-unless @team.nil?
-		-@team.errors.each do |error,msg|
-			%li.collection-item.avatar.red.lighten-4
-				%i.material-icons.circle.red
-					error
-				%span.title
-					Error
-				%p
-					=msg
+		%li.collection-item.avatar.red.lighten-4
+			%i.material-icons.circle.red
+				error
+			%span.title
+				Error
+			%p
+				-@team.errors.each do |error,msg|
+					="#{msg}<br>".html_safe

@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
 
 	def reset_resources
 		resources = Team::DEFAULT_RESOURCES
-		resources = params[:resources] unless params[:resources].nil?
+		resources = params[:resources] unless params[:resources].nil? or params[:resources].empty?
 		Team.update_all(resources: resources)
 		@teams = Team.all
 		render  partial: 'list_teams'
