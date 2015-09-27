@@ -10,7 +10,7 @@
 			%a#delete-team-btn.secondary-content{href:"#!",data:{team:{id:team.id}}}
 				%i.material-icons
 					delete
-	-unless @team.nil?
+	-unless @team.nil? or @team.errors.count <= 0 
 		%li.collection-item.avatar.red.lighten-4
 			%i.material-icons.circle.red
 				error
