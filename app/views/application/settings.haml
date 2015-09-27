@@ -4,13 +4,15 @@
 			%li
 				%div{class:"collapsible-header"}
 					%i{class:"medium material-icons"}perm_identity
-					Team
-				%div{class:'collapsible-body'}
+					Teams
+				%div{id:'teams-admin',class:'collapsible-body'}
+					#teams-list
+						=render partial: 'teams/list_teams'
 					%div{class:'col s12 input-field'}
 						%input{id:'team-name', type:'text'}
 						%label{for: 'team-name'} Name of new Team
 					%div{class:'col s12'}
-						%a{class:'waves-effect waves-light btn'}
+						%a{id:"add-team-btn", class:'waves-effect waves-light btn'}
 							%i{class:'large material-icons left'}input
 							Add Team
 			%li
@@ -22,7 +24,7 @@
 						%div{class:'col s12 input-field'}
 							%input{id:'resources', type:'number', default:1000}
 							%label{for:"resources"}Resources
-						%a{class:'waves-effect waves-light btn'}
+						%a#set-resources{class:'waves-effect waves-light btn'}
 							%i{class:'medium material-icons'}toll
 							Set Resources
 					%div{id:'time-div'}
@@ -42,6 +44,6 @@
 		%a{class:'waves-effect waves-light btn'}
 			%i{class:'medium material-icons'}loop
 			RESTART
-		%a{class:'waves-effect waves-light btn'}
+		%a{class:'waves-effect waves-light btn',href: home_path}
 			%i{class:'medium material-icons'}fast_rewind
 			HOME

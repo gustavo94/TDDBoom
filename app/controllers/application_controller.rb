@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   def index
-
+  	redirect_to action: "settings"
   end
 
   def settings
-  	
+  	@teams = Team.all
   end
 end

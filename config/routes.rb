@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get "/settings", to: "application#settings", as: :settings
   get "/play/:team/:map", to: "game#play", as: :play
   resources :teams
+  post "/team/destroy", to: "teams#destroy", as: :delete_team
+  post "/team/reset_resources", to: "teams#reset_resources", as: :reset_resources
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

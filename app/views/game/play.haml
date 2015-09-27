@@ -2,7 +2,7 @@
 	-(0...@map.level).each do |row|
 		%tr
 			-(0...@map.level).each do |column|
-				%td
+				%td.waves-effect.waves-light.red.lighten-2.btn
 					-cell = column +(6*row)
 					-if @map.board[cell][:value].class != String
 						= @map.board[cell][:value] 

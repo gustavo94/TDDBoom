@@ -1,0 +1,21 @@
+%ul.collection
+	-@teams.each_with_index do |team,index|
+		%li.collection-item.avatar
+			%i.material-icons.circle.lighten-3{class: team_color(index)}
+				contacts
+			%span.title
+				=team.name
+			%p.resources_label{style: "color:#{team_color(index)}"}
+				="Resources: #{team.resources}"
+			%a#delete-team-btn.secondary-content{href:"#!",data:{team:{id:team.id}}}
+				%i.material-icons
+					delete
+	-unless @team.nil?
+		-@team.errors.each do |error,msg|
+			%li.collection-item.avatar.red.lighten-4
+				%i.material-icons.circle.red
+					error
+				%span.title
+					Error
+				%p
+					=msg
