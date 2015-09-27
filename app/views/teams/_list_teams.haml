@@ -1,11 +1,11 @@
 %ul.collection
 	-@teams.each_with_index do |team,index|
-		%li.collection-item.avatar
+		%li.collection-item.avatar.team-card
 			%i.material-icons.circle.lighten-3{class: team_color(index)}
 				contacts
 			%span.title
 				=team.name
-			%p.resources_label{style: "color:#{team_color(index)}"}
+			%p.resources-label.text-darken-3{class: "#{team_color(index)}-text"}
 				="Resources: #{team.resources}"
 			%a#delete-team-btn.secondary-content{href:"#!",data:{team:{id:team.id}}}
 				%i.material-icons
