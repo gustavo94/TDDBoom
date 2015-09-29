@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require materialize-sprockets
 //= require turbolinks
+//= require jquery.turbolinks
 //= require settings
+//= require game
 //= require sweetalert2.min
 //= require_tree .

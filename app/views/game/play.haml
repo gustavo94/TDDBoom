@@ -2,11 +2,14 @@
 	-(0...@map.level).each do |row|
 		%tr
 			-(0...@map.level).each do |column|
-				%td.waves-effect.waves-light.red.lighten-2.btn
-					-cell = column +(6*row)
-					-if @map.board[cell][:value].class != String
-						= @map.board[cell][:value] 
+				-cell = column +(6*row)
+				-if @map.board[cell][:value].class != String
+					%td.waves-effect.waves-light.gray.lighten-2.btn{data:{cost: @map.board[cell][:value],x: column,y: row }}
+				-elsif @map.board[cell][:value] == "start"
+					%td.waves-effect.waves-light.yellow.lighten-2.btn.yellow-text.text-darken-4{data:{x: column,y: row}}
+						= @map.board[cell][:value]
+				-elsif @map.board[cell][:value] == "target"
+					%td.waves-effect.waves-light.green.lighten-2.btn.green-text.text-darken-4{data:{x: column,y: row}}
+						= @map.board[cell][:value]
 :javascript
-	$(document).ready(function(){
-	    $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
-	  });
+	show_unblocked_cells();
