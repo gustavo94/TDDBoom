@@ -1,0 +1,31 @@
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+$.fn.show_cost = function(){
+	if($(this).hasClass('gray')){
+		$(this).removeClass('gray');
+		$(this).addClass('red');
+		$(this).text($(this).data('cost'));
+	}
+		
+};
+
+var show_unblocked_cells = function(){
+	$('.yellow').each(function(index, el) {
+		x = $(el).data('x')
+		y = $(el).data('y')
+		$('[data-x='+x+'][data-y='+(y+1)+']').show_cost();		
+		$('[data-x='+x+'][data-y='+(y-1)+']').show_cost();		
+		$('[data-x='+(x+1)+'][data-y='+y+']').show_cost();		
+		$('[data-x='+(x-1)+'][data-y='+y+']').show_cost();		
+	});
+};
+
+$(function(){
+		$('.board td').on('click',function(){
+			if($(this).hasClass('red')){
+				$(this).removeClass('red');
+				$(this).addClass('yellow');
+				show_unblocked_cells();
+			}
+		});
+});
