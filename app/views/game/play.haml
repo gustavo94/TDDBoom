@@ -13,3 +13,5 @@
 						= @map.board[cell][:value]
 :javascript
 	show_unblocked_cells();
+	$('#team-label').text("#{@team.name}");
+	$('#resources-value').text("#{@team.resources}");

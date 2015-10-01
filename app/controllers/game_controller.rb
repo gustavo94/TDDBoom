@@ -1,5 +1,6 @@
 class GameController < ApplicationController
 	def play
-		@map = Map.first
+		@map = Map.find params[:map]
+		@team = Team.find params[:team]
 	end
 end

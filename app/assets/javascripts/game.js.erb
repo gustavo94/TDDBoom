@@ -20,12 +20,45 @@ var show_unblocked_cells = function(){
 	});
 };
 
+var blocked_red_cells = function(){
+	$('.red').each(function(index, el) {
+		$(el).removeClass('red');		
+		$(el).addClass('gray');		
+		$(el).text('');
+	});
+}
+
+var achieved = function(element){
+	traget_x = $('.green').data('x');
+	traget_y = $('.green').data('y');
+	x = element.data('x');
+	y = element.data('y');
+	return (Math.abs(traget_y-y) == 1 && Math.abs(traget_x-x) == 0) || (Math.abs(traget_x-x) == 1 && Math.abs(traget_y-y) == 0);
+}; 
+
+var spend = function(cost){
+	$('#resources-value').text($('#resources-value').text() - cost);
+};
+
+var win_board = function(){
+	$('.yellow').addClass('green');
+	$('.yellow').removeClass('yellow');
+	$('.green').removeClass('lighten-2');
+	$('.green').addClass('lighten-4');
+	blocked_red_cells();
+};
+
 $(function(){
 		$('.board td').on('click',function(){
 			if($(this).hasClass('red')){
 				$(this).removeClass('red');
 				$(this).addClass('yellow');
+				spend($(this).data('cost'));
 				show_unblocked_cells();
-			}
+				if (achieved($(this))){
+					win_board();
+				};
+			};
 		});
 });
+
