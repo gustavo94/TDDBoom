@@ -1,0 +1,15 @@
+%h1.red-text
+	Choose your test
+
+-@maps.each do |map|
+	%a.waves-effect.waves-light.red.lighten-2.red-text.text-darken-4.map_option{data:{id:map.id}, href:assign_map_path(@team.id,map.id)}
+		%p
+			="#{map.level} X #{map.level}"
+			%br
+			="#{map.name}"
+	
+
+:javascript
+	$('#team-label').text("#{@team.name}");
+	$('#team-label').data('id',"#{@team.id}");
+	$('#resources-value').text("#{@team.resources}");
