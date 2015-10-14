@@ -2,11 +2,14 @@ Rails.application.routes.draw do
   get "/", to: "application#index", as: :home
   get "/settings", to: "application#settings", as: :settings
   get "/play/:team/:map", to: "game#play", as: :play
-  get "/play/:team/:map", to: "game#assign_map", as: :assign_map
+  get "/assign_map/:team/:map", to: "game#assign_map", as: :assign_map
   get "/play/:team", to: "game#chosen_map", as: :chosen_map
   resources :teams
   post "/team/destroy", to: "teams#destroy", as: :delete_team
+  post "/team/update_resources", to: "teams#update_resources", as: :update_resources
   post "/team/reset_resources", to: "teams#reset_resources", as: :reset_resources
+  post "/game/reset", to: "game#reset", as: :reset_game
+  post "/game/end_game", to: "game#end_game", as: :end_game
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

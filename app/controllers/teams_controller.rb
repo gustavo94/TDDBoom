@@ -19,4 +19,10 @@ class TeamsController < ApplicationController
 		@teams = Team.all
 		render  partial: 'list_teams'
 	end
+
+	def update_resources
+		@team = Team.find params[:team]
+		@team.update_resources_and_map params[:resources],params[:map]
+		render nothing:true
+	end
 end

@@ -2,12 +2,19 @@
 	Choose your test
 
 -@maps.each do |map|
-	%a.waves-effect.waves-light.red.lighten-2.red-text.text-darken-4.map_option{data:{id:map.id}, href:assign_map_path(@team.id,map.id)}
-		%p
-			="#{map.level} X #{map.level}"
-			%br
-			="#{map.name}"
-	
+	-if @team.solved_map?(map.id)
+		%a.waves-effect.waves-light.green.lighten-2.green-text.text-darken-4.map_option{data:{id:map.id}, href:"#"}
+			%p
+				="#{map.level} X #{map.level}"
+				%br
+				="#{map.name}"
+	-else
+		%a.waves-effect.waves-light.red.lighten-2.red-text.text-darken-4.map_option{data:{id:map.id}, href:assign_map_path(@team.id,map.id)}
+			%p
+				="#{map.level} X #{map.level}"
+				%br
+				="#{map.name}"
+		
 
 :javascript
 	$('#team-label').text("#{@team.name}");

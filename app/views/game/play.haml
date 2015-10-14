@@ -1,4 +1,4 @@
-%table.board
+%table.board{data:{map: @map.id}}
 	-(0...@map.level).each do |row|
 		%tr
 			-(0...@map.level).each do |column|
@@ -11,7 +11,11 @@
 				-elsif @map.board[cell][:value] == "target"
 					%td.waves-effect.waves-light.green.lighten-2.btn.green-text.text-darken-4{data:{x: column,y: row}}
 						= @map.board[cell][:value]
+}
 :javascript
 	show_unblocked_cells();
 	$('#team-label').text("#{@team.name}");
+	$('#team-label').data("id","#{@team.id}");
+	$('#team-label').data("next","#{@team.next_team.id}");
+	$('#team-label').data("next_name","#{@team.next_team.name}");
 	$('#resources-value').text("#{@team.resources}");

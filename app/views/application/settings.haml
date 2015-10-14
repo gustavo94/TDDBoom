@@ -27,21 +27,15 @@
 						%a#set-resources{class:'waves-effect waves-light btn'}
 							%i{class:'medium material-icons'}toll
 							Set Resources
-					%div{id:'time-div'}
-						%div{class:'col s12 input-field'}
-							%input{id:'time', type:'number', default:1000}
-							%label{for:'time'} Time per Team
-						%a{class:'waves-effect waves-light btn'}
-							%i{class:'medium material-icons'}schedule
-							Set Time
+					
 	%div{class:'col s12'}
-		%a{class:'waves-effect waves-light btn'}
+		%a#end_game_btn{class:'waves-effect waves-light btn'}
 			%i{class:'medium material-icons'}settings_power
 			END
 		%a{class:'waves-effect waves-light btn',href:chosen_map_path(@teams.first.id)}
 			%i{class:'medium material-icons'} fast_forward
 			PLAY
-		%a{class:'waves-effect waves-light btn'}
+		%a#reset_btn{class:'waves-effect waves-light btn'}
 			%i{class:'medium material-icons'}loop
 			RESTART
 		%a{class:'waves-effect waves-light btn',href: home_path}

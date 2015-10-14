@@ -1,10 +1,12 @@
+<% url = Rails.application.routes.url_helpers %>
+
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 $.fn.show_cost = function(){
 	if($(this).hasClass('gray')){
 		$(this).removeClass('gray');
 		$(this).addClass('red');
-		$(this).text($(this).data('cost'));
+		$(this).text("Effort: "+$(this).data('cost'));
 	}
 		
 };
@@ -40,12 +42,33 @@ var spend = function(cost){
 	$('#resources-value').text($('#resources-value').text() - cost);
 };
 
+var update_resources = function(){
+	resources = $('#resources-value').text();
+	team = $('#team-label').data("id");
+	map = $('.board').data('map');
+	$.post("<%=url.update_resources_path()%>", {team: team,resources: resources,map: map}, function(data, textStatus, xhr) {
+		next_team = $('#team-label').data("next");
+		next_team_name = $('#team-label').data("next_name");
+		swal({title: "You complete this board!",   
+			text: "Next turn, "+next_team_name,   
+			type: "warning",   
+			showCancelButton: false,   
+			confirmButtonColor: "#DD6B55",   
+			confirmButtonText: "Ok!",   
+			closeOnConfirm: false }, 
+				function(){  
+					window.location = "/play/"+next_team;
+				});
+	});
+};
+
 var win_board = function(){
 	$('.yellow').addClass('green');
 	$('.yellow').removeClass('yellow');
 	$('.green').removeClass('lighten-2');
 	$('.green').addClass('lighten-4');
 	blocked_red_cells();
+	update_resources();
 };
 
 $(function(){

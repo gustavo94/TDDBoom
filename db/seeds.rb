@@ -47,6 +47,10 @@ board << {x:3,y:5,value:2}
 board << {x:4,y:5,value:3}
 board << {x:5,y:5,value:4}
 mapa_easy_1.board = board
+optimizations = []
+optimizations << {x:3,y:3,value:200}
+optimizations << {x:1,y:5,value:100}
+mapa_easy_1.optimizations = optimizations
 mapa_easy_1.save
 
 
@@ -92,5 +96,9 @@ board << {x:3,y:5,value:4}
 board << {x:4,y:5,value:3}
 board << {x:5,y:5,value:5}
 mapa_easy_2.board = board
+optimizations = []
+optimizations << {x:0,y:0,value:200}
+optimizations << {x:0,y:3,value:100}
+mapa_easy_2.optimizations = optimizations
 mapa_easy_2.save
 
